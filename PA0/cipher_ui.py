@@ -28,16 +28,23 @@ map_e_to_d = {
     'y':'k',
     'z':'h',
     ' ':' '
-}
+} ## Random Manual mapping
 map_d_to_e = {
 
-}
+} ## Inverse Mapping
+
 def gen_inv():
+    '''
+    Inverting the encryption map
+    '''
     if len(map_d_to_e)==0:
         for e, d in map_e_to_d.items():
             map_d_to_e[d]=e
 
 def encrypt(x):
+    '''
+    Encrypts the input based on table lookup
+    '''
     out = ''
     try:
         for c in x:
@@ -49,7 +56,11 @@ def encrypt(x):
         return x
 
 def decrypt(x):
+    '''
+    Decrypts the input based on table lookup
+    '''
     gen_inv()    
+    
     out = ''
     try:
         for c in x:
